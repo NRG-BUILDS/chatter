@@ -1,0 +1,148 @@
+{
+  "users": [
+    {
+      "name": "Moon",
+      "avatar": {
+        "jpg": "./images/avatar/moon.jpg"
+      },
+      "email": "example@gmail.com",
+      "password": "secretPPP",
+      "id": "1",
+      "contacts": [
+        {
+          "name":"Victor Glover",
+          "id": "16"
+        },
+        {
+          "name":"Dan",
+          "id": "6"
+        },
+        {
+          "name":"Global",
+          "id": "2"
+        },
+        {
+          "name":"Lisa",
+          "id": "12"
+        }
+      ]
+    },
+    {
+      "name": "Kenny",
+      "avatar": {
+        "jpg": "./images/avatar/kenny.jpg"
+      },
+      "email": "example@gmail.com",
+      "password": "secretPPP",
+      "id": "2",
+      "contacts": [
+        {
+          "name":"Victor Glover",
+          "id": "16"
+        },
+        {
+          "name":"Dan",
+          "id": "6"
+        },
+        {
+          "name":"Global",
+          "id": "2"
+        },
+        {
+          "name":"Lisa",
+          "id": "12"
+        }
+      ]
+    },
+    {
+      "name": "Emma",
+      "avatar": {
+        "jpg": "./images/avatar/emma.jpg"
+      },
+      "email": "example@gmail.com",
+      "password": "secretPPP",
+      "id": "3",
+      "contacts": [
+        {
+          "name":"Victor Glover",
+          "id": "16"
+        },
+        {
+          "name":"Dan",
+          "id": "6"
+        },
+        {
+          "name":"Global",
+          "id": "2"
+        },
+        {
+          "name":"Lisa",
+          "id": "12"
+        }
+      ]
+    }
+  ],
+  "chats": [
+    {
+      "name": "Douglas Hurley",
+      "images": {
+        "jpg": "./images/crew/image-douglas-hurley.jpg"
+      },
+      "role": "Commander",
+      "bio": "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2."
+    },
+    {
+      "name": "Mark Shuttleworth",
+      "images": {
+        "png": "./images/crew/image-mark-shuttleworth.png",
+        "webp": "./images/crew/image-mark-shuttleworth.webp"
+      },
+      "role": "Mission Specialist",
+      "bio": "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist."
+    },
+    {
+      "name": "Victor Glover",
+      "images": {
+        "png": "./images/crew/image-victor-glover.png",
+        "webp": "./images/crew/image-victor-glover.webp"
+      },
+      "role": "Pilot",
+      "bio": "Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer."
+    },
+    {
+      "name": "Anousheh Ansari",
+      "images": {
+        "png": "./images/crew/image-anousheh-ansari.png",
+        "webp": "./images/crew/image-anousheh-ansari.webp"
+      },
+      "role": "Flight Engineer",
+      "bio": "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space."
+    }
+  ],
+  "technology": [
+    {
+      "name": "Launch vehicle",
+      "images": {
+        "portrait": "./images/technology/image-launch-vehicle-portrait.jpg",
+        "landscape": "./images/technology/image-launch-vehicle-landscape.jpg"
+      },
+      "description": "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
+    },
+    {
+      "name": "Spaceport",
+      "images": {
+        "portrait": "./images/technology/image-spaceport-portrait.jpg",
+        "landscape": "./images/technology/image-spaceport-landscape.jpg"
+      },
+      "description": "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch."
+    },
+    {
+      "name": "Space capsule",
+      "images": {
+        "portrait": "./images/technology/image-space-capsule-portrait.jpg",
+        "landscape": "./images/technology/image-space-capsule-landscape.jpg"
+      },
+      "description": "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained."
+    }
+  ]
+}
