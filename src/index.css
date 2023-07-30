@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.otherMessage, .myMessage {
+    @apply flex gap-2 md:gap-4 w-3/4 my-2 text-sm
+}
+.myMessage {
+    @apply float-right flex-row-reverse
+}
+.bubble {
+    @apply items-center mb-1 inline-block
+}
+.otherMessage .bubble {
+    @apply bg-gray-300
+}
+.myMessage .bubble {
+    @apply bg-green-500 text-white
+}
+
+.loadAnimation {
+    animation: load 1s ease-in-out infinite alternate;
+}
+@keyframes load {
+    0% {
+        letter-spacing: 0rem;
+    }
+    100% {
+        letter-spacing: 1rem;
+    }
+}
