@@ -5,7 +5,7 @@ import LoadingScreen from "./LoadingScreen";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
 const HomeLayoutMobile = () => {
-    const {data , isPending, error} = useFetch('http://localhost:8000/users/1')
+    const {data , isPending, error} = useFetch('https://nrg-builds.github.io/chatter/data/data.json')
 
     return ( 
         <main>
