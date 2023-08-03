@@ -38,7 +38,7 @@ const HomeLayoutPC = () => {
 
                         {/* display chat list when data is retrieved */}
                         {data && (<div>
-                            <ChatLists data={data} deviceType={'desktop'} handleClick={setIsAnySelected}/>
+                            <ChatLists data={data.user} deviceType={'desktop'} handleClick={setIsAnySelected}/>
                         </div>) }
 
                         {/* error message */}

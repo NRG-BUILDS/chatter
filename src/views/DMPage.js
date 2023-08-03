@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const DMPage = ({chatIdProp, emptyState}) => {
     const { id } = useParams()
@@ -74,9 +75,12 @@ const DMPage = ({chatIdProp, emptyState}) => {
                             if(msgItem.fromMe) {
                                 return (
                                     <div className="myMessage">
-                                        <div className="rounded-full w-10 h-10 overflow-hidden">
-                                            <img src={require("../images/avatar/profile.jpg")} alt="" />
-                                        </div>
+                                        <Link to={`/profile/${chatId}`}>
+                                            <div className="rounded-full w-7 h-7 overflow-hidden">
+                                                <img src={require("../images/avatar/profile.jpg")} alt="" />
+                                            </div>
+                                        </Link>
+                                        
                                         <div className="grid justify-items-end">
                                             <div className="bubble px-4 py-2 rounded-3xl">
                                                 <p className="break-words">{msgItem.message}</p>
@@ -90,9 +94,11 @@ const DMPage = ({chatIdProp, emptyState}) => {
                             }
                             return (
                                 <div className="otherMessage">
-                                    <div className="rounded-full w-10 h-10 overflow-hidden">
-                                        <img src={require("../images/avatar/profile.jpg")} alt="" />
-                                    </div>
+                                    <Link to={`/profile/${chatId}`}>
+                                            <div className="rounded-full w-7 h-7 overflow-hidden">
+                                                <img src={require("../images/avatar/profile.jpg")} alt="" />
+                                            </div>
+                                        </Link>
                                     <div className="grid justify-items-start">
                                         <div className="bubble px-4 py-2 rounded-3xl">
                                             <p className="break-words">{msgItem.message}</p>

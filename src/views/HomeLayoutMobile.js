@@ -32,7 +32,7 @@ const HomeLayoutMobile = () => {
 
                 {/* display chat list when data is retrieved */}
                 {data && <div className="px-4">
-                    <ChatLists data={data}/>
+                    <ChatLists data={data.user}/>
                 </div>}
 
                 {/* error message */}
