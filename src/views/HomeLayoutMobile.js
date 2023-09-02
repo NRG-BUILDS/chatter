@@ -1,23 +1,23 @@
 import Logo from "../components/Logo";
 import useFetch from "../useFetch";
 import ChatLists from "../components/ChatLists";
-import LoadingScreen from "./LoadingScreen";
+import LoadingScreen from "../components/LoadingScreen";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import SearchBar from "../components/SearchBar";
+import { useState } from "react";
 
 const HomeLayoutMobile = () => {
     const {data , isPending, error} = useFetch('https://nrg-builds.github.io/chatter/data/data.json')
-
+    const [searchQuery, setSearchQuery] = useState()
+    
     return ( 
-        <main>
-            <section>
-                <div className="flex justify-between items-center px-4 py-5 shadow-lg">
+        <main className="bg-gray-50">
+            <section className="bg-white relative">
+                <div className="flex justify-between items-center p-4 shadow-lg">
                     <div>
-                        <Logo style={'text-2xl'}/>
+                        <Logo Style={'text-2xl'}/>
                     </div>
                     <div className="flex items-center gap-4">
-                        <div>
-                            <span className="material-icons-outlined">search</span>
-                        </div>
                         <div>
                             <Link to='/profile/me'>
                                 <img src={require('../images/avatar/profile.jpg')} alt="" className=" w-12 rounded-full"/>
@@ -26,17 +26,18 @@ const HomeLayoutMobile = () => {
                     </div>
                 </div>
             </section>
-            <section>
+            <SearchBar handleType={setSearchQuery}/>
+            <section className="h-screen overflow-y-auto">
                 {/* wait to retrieve data from server */}
                 {isPending && <LoadingScreen message={'Getting your messages...'}/>}
 
                 {/* display chat list when data is retrieved */}
-                {data && <div className="px-4">
-                    <ChatLists data={data.user}/>
+                {data && <div className="">
+                    <ChatLists data={data.user} searchQuery={searchQuery}/>
                 </div>}
 
                 {/* error message */}
-                {error && <div className="text-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Sorry, an error occured</div>}
+                {error && <div className="text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Sorry, an error occured</div>}
 
                 
             </section>
@@ -45,7 +46,7 @@ const HomeLayoutMobile = () => {
                         <h1 className="text-5xl font-light py-4">
                             You've switched screens
                         </h1>
-                        <p>{<Logo style={'inline'}/>} has detected the you change browser sizes.</p>
+                        <p>{<Logo Style={'inline'}/>} has detected the you change browser sizes.</p>
                         <a href="/chat/desktop" className="block py-2 px-6 my-6 w-2/4 mx-auto bg-green-500 text-white rounded-md">Open Desktop Layout</a>
 
                     </div>

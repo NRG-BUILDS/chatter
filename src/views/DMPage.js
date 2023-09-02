@@ -33,6 +33,7 @@ const DMPage = ({chatIdProp, emptyState}) => {
     //refresh the DM page after a new message is sent
     const [refresh, setRefresh] = useState(false)
 
+    //send button function
     const handleSend = () => {
         const textBox = document.querySelector('.textBox')
         if (!text || text === "" || text ===" ") {
@@ -59,12 +60,15 @@ const DMPage = ({chatIdProp, emptyState}) => {
         <section className="relative h-screen">
             <img src={require('../assets/images/doodle_bg.png')} alt="" className="-z-10 absolute top-0 left-0 w-full h-full object-cover opacity-20"/>
         {!emptyState && (<div>
-                    <div className="flex justify-between items-center px-4 py-4 shadow-lg bg-white">
-                        <div className="flex items-center gap-1.5">
+                    <div className="flex justify-between items-center p-2 shadow-lg bg-white">
+                        <div className="flex items-center">
                             <button onClick={() => {history.go(-1)}}>
                                 <span className="flex md:hidden material-icons-outlined opacity-70">arrow_back_ios_new</span>
                             </button>
-                            <h2 className="font-extrabold">{chatId}</h2>
+                            <Link to={`/profile/${chatId}`}>
+                                <img src={require('../images/avatar/profile.jpg')} alt="" className="w-10 rounded-full" />
+                            </Link>
+                            <h2 className="mx-2 font-extrabold">{chatId}</h2>
                         </div>
                         <div>
                             <span className="material-icons-outlined">more_vert</span>
@@ -82,7 +86,7 @@ const DMPage = ({chatIdProp, emptyState}) => {
                                         </Link>
                                         
                                         <div className="grid justify-items-end">
-                                            <div className="bubble px-4 py-2 rounded-3xl">
+                                            <div className="bubble">
                                                 <p className="break-words">{msgItem.message}</p>
                                                  
                                             </div>
@@ -100,7 +104,7 @@ const DMPage = ({chatIdProp, emptyState}) => {
                                             </div>
                                         </Link>
                                     <div className="grid justify-items-start">
-                                        <div className="bubble px-4 py-2 rounded-3xl">
+                                        <div className="bubble">
                                             <p className="break-words">{msgItem.message}</p>
                                             
                                         </div>
