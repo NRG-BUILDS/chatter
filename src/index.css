@@ -9,7 +9,7 @@
     @apply float-right flex-row-reverse
 }
 .bubble {
-    @apply items-center mb-1 inline-block
+    @apply items-center mb-1 inline-block px-3 py-2 rounded-2xl
 }
 .otherMessage .bubble {
     @apply bg-gray-300
