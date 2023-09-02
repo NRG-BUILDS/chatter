@@ -1,6 +1,6 @@
-const Logo = ({style}) => {
+const Logo = ({Style}) => {
     return ( 
-        <h1 className={`text-green-500 font-extrabold ${style}`}>Chatter</h1>
+        <h1 className={`text-green-500 font-extrabold ${Style}`}>Chatter</h1>
      );
 }
  
