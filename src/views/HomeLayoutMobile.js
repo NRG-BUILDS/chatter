@@ -5,14 +5,34 @@ import LoadingScreen from "../components/LoadingScreen";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import SearchBar from "../components/SearchBar";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+const pageAnimationVariants = {
+    initial: {
+        x: '-100vw'
+    },
+    animate: {
+        x: 0,
+        transition: { type: 'tween' }
+    },
+    exit: {
+        x: '-100vw', 
+    }
+  }
+
 
 const HomeLayoutMobile = () => {
     const {data , isPending, error} = useFetch('https://nrg-builds.github.io/chatter/data/data.json')
     const [searchQuery, setSearchQuery] = useState()
     
     return ( 
-        <main className="bg-gray-50">
-            <section className="bg-white relative">
+        <motion.main className="bg-backdrop-offwhite dark:bg-backdrop-darker"
+            variants={pageAnimationVariants}
+            initial='initial'
+            animate='animate'
+            exit='exit'
+        >
+            <section className=" bg-backdrop-light dark:bg-backdrop-dark relative">
                 <div className="flex justify-between items-center p-4 shadow-lg">
                     <div>
                         <Logo Style={'text-2xl'}/>
@@ -37,11 +57,11 @@ const HomeLayoutMobile = () => {
                 </div>}
 
                 {/* error message */}
-                {error && <div className="text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Sorry, an error occured</div>}
+                {error && <div className="text-center dark:text-txtColor-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Sorry, an error occured</div>}
 
                 
             </section>
-            <div className="hidden fixed top-0 md:flex h-screen w-screen items-center justify-center z-50 bg-white">
+            <div className="hidden fixed top-0 md:flex h-screen w-screen items-center justify-center z-50 bg-backdrop-light dark:bg-backdrop-dark dark:text-txtColor-light">
                     <div className="text-center">
                         <h1 className="text-5xl font-light py-4">
                             You've switched screens
@@ -51,7 +71,7 @@ const HomeLayoutMobile = () => {
 
                     </div>
             </div>
-        </main>
+        </motion.main>
      );
 }
  

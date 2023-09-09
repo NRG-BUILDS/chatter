@@ -13,7 +13,7 @@ const ChatPage = () => {
     }, [])
     
     return ( 
-        <main>
+        <main className=" dark:bg-slate-950">
             {isDesktop && (<HomeLayoutPC />)}
             {!isDesktop && (<HomeLayoutMobile />)}
         </main>

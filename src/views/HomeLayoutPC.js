@@ -16,8 +16,8 @@ const HomeLayoutPC = () => {
     return ( 
         <>
             <section className="grid grid-cols-3">
-                <div className="col-span-1 h-screen overscroll-y-auto overflow-auto relative bg-gray-50">
-                    <section className="bg-white">
+                <div className="col-span-1 h-screen overscroll-y-auto overflow-auto relative bg-backdrop-offwhite dark:bg-backdrop-darker">
+                    <section className="bg-backdrop-light dark:bg-backdrop-dark">
                         <div className="flex justify-between items-center px-4 py-8 shadow-lg">
                             <div>
                                 <Logo Style={'text-3xl'}/>
@@ -42,7 +42,7 @@ const HomeLayoutPC = () => {
                         </div>) }
 
                         {/* error message */}
-                        {error && <div className="text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Sorry, an error occured</div>}
+                        {error && <div className="text-center dark:text-txtColor-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Sorry, an error occured</div>}
                     </section>
                 </div>
                 <section className="col-span-2">
@@ -50,13 +50,13 @@ const HomeLayoutPC = () => {
                 </section>
                 
             </section>
-            <div className="sm:block md:hidden fixed top-0  h-screen w-screen items-center justify-center z-50 bg-white">
+            <div className="sm:block md:hidden fixed top-0  h-screen w-screen items-center justify-center z-50 bg-backdrop-light dark:bg-backdrop-dark dark:text-txtColor-light">
                     <div className="text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4">
                         <h1 className="text-5xl py-4 font-light">
                             You've switched screens
                         </h1>
                         <p>{<Logo Style={'inline'}/>} has detected the you changed browser sizes.</p>
-                        <a href="/chat/mobile" className="block py-2 px-6 my-6 w-2/3 mx-auto bg-green-500 text-white rounded-md">Open Mobile Layout</a>
+                        <a href="/chat/mobile" className="block py-2 px-6 my-6 w-2/3 mx-auto bg-green-500 text-txtColor-dark dark:text-txtColor-light rounded-md">Open Mobile Layout</a>
 
                     </div>
             </div>

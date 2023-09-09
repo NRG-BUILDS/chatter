@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { motion } from "framer-motion";
 import Logo from "../components/Logo";
+
+const pageAnimationVariants = {
+  initial: {scale: 2, opacity: 0},
+  animate: {scale: 1, opacity: 1},
+  exit: {scale: 2, opacity: 0}
+}
 
 
 export default function Login() {
@@ -30,8 +37,13 @@ export default function Login() {
 
 
     return (
-      <>
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <motion.div
+        variants={pageAnimationVariants}
+        initial='initial'
+        animate='animate'
+        exit='exit'
+      >
+        <div className="bg-white flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm text-center">
             <Logo Style={'text-4xl'} />
             <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -101,7 +113,7 @@ export default function Login() {
                   className="flex md:hidden w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
                   onClick={() => {handleSubmit('mobile')}}
                 >
-                  Sign in
+                  Log in
                 </button>
               </div>
             </form>
@@ -114,6 +126,6 @@ export default function Login() {
             </p>
           </div>
         </div>
-      </>
+      </motion.div>
     )
   }

@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import Logo from "../components/Logo";
+import { motion } from "framer-motion";
+
+const pageAnimationVariants = {
+  initial: {scale: 2, opacity: 0},
+  animate: {scale: 1, opacity: 1},
+  exit: {scale: 0.4, opacity: 0}
+}
 
 const Signup = () => {
     // const [username, setUsername] = useState(null)
@@ -60,7 +67,11 @@ const Signup = () => {
     }
 
     return ( 
-        <>
+        <motion.div
+          variants={pageAnimationVariants}
+          initial='initial'
+          animate='animate'
+        >
         <img src={require('../assets/images/more.png')} className="absolute top-0 left-0 w-full h-full object-cover opacity- z-0" alt="" />
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="bg-white z-10 relative">
@@ -163,7 +174,7 @@ const Signup = () => {
             </div>
           
         </div>
-      </>
+      </motion.div>
      );
 }
  

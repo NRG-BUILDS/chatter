@@ -23,31 +23,9 @@
     -->
     <title>Chatter by NRG</title>
   </head>
-  <body>
+  <body class="dark:bg-backdrop-darker">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <script>
-        window.addEventListener("scroll", reveal);
-        window.addEventListener("load", reveal);
- 
-        //to play slide up and side animations on scroll
-        function reveal() {
-          let reveals = document.querySelectorAll(".reveal");
-          for (let i = 0; i < reveals.length; i++) {
-            let windowHeight = window.innerHeight;
-            let elementTop = reveals[i].getBoundingClientRect().top;
-            let elementVisible = 15;
-            if (elementTop < windowHeight - elementVisible) {
-              reveals[i].classList.add("active");
-            } else {
-              reveals[i].classList.remove("active");
-            }
-          }
-        }
-        // To check the scroll position on page load
-        reveal();
-
-    </script>
   </body>
 </html>

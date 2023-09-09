@@ -6,7 +6,7 @@ const LoadingScreen = ({message}) => {
             <div className="loadAnimation">
                 {<Logo Style={'text-4xl'}/>}
             </div>
-            <div className="animate-pulse">{message}</div>
+            <div className="animate-pulse dark:text-txtColor-light">{message}</div>
             
         </div>
      );

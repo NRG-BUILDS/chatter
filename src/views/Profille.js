@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { motion } from "framer-motion";
 import InputModal from "../components/InputModal";
 
 const Profile = () => {
@@ -18,9 +19,14 @@ const Profile = () => {
     console.log(user)
     const lastSeen = "Fri, Jul 28"
     return ( 
-        <section className='h-screen w-screen bg-gray-100'>
+        <motion.section className='py-6 bg-backdrop-offwhite dark:bg-backdrop-darker dark:text-txtColor-light'
+            variants={pageAnimationVariant}
+            initial='initial'
+            animate='animate'
+            exit='exit'
+        >
             <div className='max-w-2xl px-2 mx-auto my-2 '>
-                <div className="text-center mb-2 shadow-md bg-white rounded-xl">
+                <div className="text-center mb-2 shadow-md bg-backdrop-light dark:bg-backdrop-dark rounded-xl">
                     <div className='py-4'>
                         <img src={require('../images/avatar/profile.jpg')} alt="" className='rounded-full w-48 mx-auto'/>
                     </div>
@@ -32,7 +38,7 @@ const Profile = () => {
                     {!isMe && <ProfileActions message={true} audio={true} video={true}/>}
                 </div>
 
-                <div className="shadow-md px-4 py-5 bg-white rounded-xl">
+                <div className="shadow-md px-4 py-5 bg-backdrop-light dark:bg-backdrop-dark rounded-xl">
                     <span className="opacity-50 font-semibold">Bio</span>
                     <p className="py-3">{bio}</p>
                     <span><span className="opacity-50 font-semibold">Last seen: </span>{lastSeen}</span>
@@ -42,7 +48,7 @@ const Profile = () => {
             </div>
             
         {openModal && <InputModal title={'Edit Bio'} handleClick={setBio} setOpenModal={setOpenModal}/>}
-        </section>
+        </motion.section>
      );
 }
  
@@ -52,24 +58,27 @@ export default Profile;
 
 const ProfileActions = ({message = false, audio = false, video = false, settings = false, editBio = false, setOpenModal}) => {
     return ( 
-        <div className="flex font-bold items-center justify-center my-4 w-4/5 mx-auto">
-            {message && <div className="grid text-green-500 w-1/3 py-4">
+        <div className="flex font-bold items-center justify-center gap-4 my-4 w-4/5 mx-auto">
+            {message && <div className="grid text-primary-normal py-4 w-1/3">
                 <span className="material-icons-outlined text-xl">chat</span>
                 <span>Message</span>
             </div>}
-            {audio && <div className="grid text-green-500 w-1/3 py-4">
+            {audio && <div className="grid text-primary-normal py-4 w-1/3">
                 <span className="material-icons-outlined text-xl">call</span>
                 <span>Audio</span>
             </div>}
-            {video && <div className="grid text-green-500 w-1/3 py-4">
+            {video && <div className="grid text-primary-normal py-4 w-1/3">
                 <span className="material-icons-outlined text-xl">videocam</span>
                 <span>Video</span>
             </div>}
-            {settings && <div className="grid text-green-500 w-1/3 py-4">
-                <span className="material-icons-outlined text-xl">settings</span>
-                <span>Settings</span>
+            {settings && <div className="text-primary-normal py-4 w-1/3">
+                <Link to="/settings" className="grid">
+                    <span className="material-icons-outlined text-xl">settings</span>
+                    <span>Settings</span>
+                </Link>
+               
             </div>}
-            {editBio && <div className="text-green-500 w-1/3 py-4">
+            {editBio && <div className="text-primary-normal py-4">
                 <button
                     className="grid"
                     onClick={() => {setOpenModal(true)}}>
@@ -98,4 +107,15 @@ const BlockBtn = () => {
             </div>
         </Link>
      );
+}
+
+const pageAnimationVariant = {
+    initial: {
+        y: '100vh'
+    },
+    animate: {
+        y: 0,
+        transition: {delay: 0.5, type: 'spring', stiffness: 50}
+    },
+    exit: {scale: 1.2, opacity: 0},
 }

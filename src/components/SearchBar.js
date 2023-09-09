@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const SearchBar = ({handleType}) => {
     const [isEmpty, setIsEmpty] = useState(true)
@@ -16,19 +17,38 @@ const SearchBar = ({handleType}) => {
 
     return ( 
         <section className="sticky top-0 flex gap-x-4 pt-6 pb-4 px-3 backdrop-blur z-10">
-                <div className="w-full bg-white rounded-2xl overflow-hidden">
+                <div className="w-full  rounded-2xl overflow-hidden">
                     <input 
                         type="text"
                         onChange={(e) => {func(e)}}
                         placeholder="Search chats..."
-                        className="p-4 outline-none w-full" />
+                        className="p-4 outline-none w-full bg-backdrop-offwhite dark:bg-backdrop-dark dark:text-txtColor-light" />
                 </div>
-                <div className="bg-green-500 text-white rounded-2xl flex items-center justify-center w-1/5">
-                    {isEmpty && <button className="material-icons-outlined">chat</button>}
-                    {!isEmpty && <button className="material-icons-outlined">search</button>}
+                <div className="w-1/5 flex items-center justify-center">
+                    {isEmpty && <motion.button 
+                        variants={buttonVariants}
+                        initial='initial'
+                        animate='animate'
+                        exit="exit"
+                        className="bg-primary-normal h-full w-full text-white rounded-2xl material-icons-outlined">chat</motion.button>}
+                    {!isEmpty && <motion.button 
+                        variants={buttonVariants}
+                        initial='initial'
+                        animate='animate'
+                        exit="exit"
+                        className="bg-primary-normal h-full w-full text-white rounded-2xl material-icons-outlined">search</motion.button>}
                 </div>
         </section>
      );
+}
+
+const buttonVariants = {
+    initial: {scale: 0.5},
+    animate: {
+        scale: 1,
+        transition: {type: 'spring', mass:1, stiffness: 200}
+    },
+    exit: {scale: 0.5}
 }
  
 export default SearchBar;

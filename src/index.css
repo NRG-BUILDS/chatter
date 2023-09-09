@@ -12,10 +12,13 @@
     @apply items-center mb-1 inline-block px-3 py-2 rounded-2xl
 }
 .otherMessage .bubble {
-    @apply bg-gray-300
+    @apply bg-gray-300 dark:bg-backdrop-dark dark:text-txtColor-light
 }
 .myMessage .bubble {
-    @apply bg-green-500 text-white
+    @apply bg-primary-normal text-white
+}
+.chatWindow {
+    height: calc(100vh - 100px);
 }
 
 .loadAnimation {
